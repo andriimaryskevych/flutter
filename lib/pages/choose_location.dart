@@ -10,8 +10,6 @@ class _ChooseLocationState extends State<ChooseLocation> {
   int counter = 0;
   @override
   Widget build(BuildContext context) {
-    print('Build function run');
-
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
