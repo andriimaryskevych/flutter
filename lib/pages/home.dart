@@ -13,11 +13,11 @@ class _HomeState extends State<Home> {
     data = ModalRoute.of(context).settings.arguments;
     print(data);
 
-    String bgImage = data['isDaytime']
-      ? "assets/day.png"
-      : "assets/night.png";
+    String bgImage = data['isDaytime'] ? "assets/day.png" : "assets/night.png";
+    Color bgColor = data['isDaytime'] ? Colors.blue : Colors.indigo[700];
 
     return Scaffold(
+      backgroundColor: bgColor,
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -34,22 +34,37 @@ class _HomeState extends State<Home> {
                   onPressed: () {
                     Navigator.pushNamed(context, '/location');
                   },
-                  icon: Icon(Icons.edit_location),
-                  label: Text('Edit location'),
+                  icon: Icon(
+                    Icons.edit_location,
+                    color: Colors.grey[300]
+                  ),
+                  label: Text(
+                    'Edit location',
+                    style: TextStyle(
+                      color: Colors.grey[300]
+                    ),
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       data['location'],
-                      style: TextStyle(fontSize: 28, letterSpacing: 2),
+                      style: TextStyle(
+                        fontSize: 28,
+                        letterSpacing: 2,
+                        color: Colors.white
+                      ),
                     )
                   ],
                 ),
                 SizedBox(height: 20),
                 Text(
                   data['time'],
-                  style: TextStyle(fontSize: 66),
+                  style: TextStyle(
+                    fontSize: 66,
+                    color: Colors.white
+                  ),
                 )
               ],
             ),
